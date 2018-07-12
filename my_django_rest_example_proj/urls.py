@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 
-from rest_framework.authtoken import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('auth.urls'))
+    path('rest-auth/', include('auth.urls')),
+
+    path('rest-auth/', include('rest_auth.urls')),
+    # path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    # path('refresh-token', refresh_jwt_token)
 ]
 
 

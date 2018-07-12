@@ -16,13 +16,6 @@ class CreateUserView(CreateAPIView):
     serializer_class = UserSerializer
 
 
-class LogoutView(APIView):
-
-    def post(self, request):
-        request.user.auth_token.delete()
-        return Response(status=status.HTTP_200_OK)
-
-
 class SecretView(APIView):
     permission_classes = (permissions.IsAuthenticated,)
     def get(self, request):
